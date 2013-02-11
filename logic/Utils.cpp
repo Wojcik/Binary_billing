@@ -24,3 +24,8 @@ cJSON* Utils::getJson(std::string name)
 		return NULL;
 	return cJSON_Parse(data_f);
 }
+
+bool Utils::is_digits(const std::string &str)
+{
+	return str.find_first_not_of("0123456789") == std::string::npos;
+}

@@ -10,7 +10,7 @@ class Model
 {
 public:
 	//user can speak for this long at one call
-	static const int MAX_SESSION_LENGTH = 3600; //seconds (1 hour)
+	static const unsigned MAX_SESSION_LENGTH = 3600; //seconds (1 hour)
 
 	//singleton
 	static Model* getInstance() {

@@ -45,6 +45,13 @@ bool ActiveCall::setDuration( unsigned value )
 		abonent->endCall();
 		return false;
 	}
+	//if abonent speaks too much
+	else if (value > Model::MAX_SESSION_LENGTH)
+	{
+		//update conversation time for system limits
+		value = Model::MAX_SESSION_LENGTH;
+		printf("Too long session. Session will be aborted after %d minutes because of system limits\n" , Model::MAX_SESSION_LENGTH/60);
+	}
 	duration = value;
 	return true;
 }

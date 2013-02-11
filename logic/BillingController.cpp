@@ -8,6 +8,7 @@
 #include "Abonent.h"
 #include "..\DataTypes\AbonentData.h"
 #include "Model.h"
+#include "Utils.h"
 
 BillingController::BillingController()
 {
@@ -31,7 +32,7 @@ void BillingController::init()
 		data = NULL;
 		id = 0;
 		Model::getInstance()->printAbonents();
-
+		// get user data for start session
 		while(!data)
 		{
 			cout << "Enter abonent id who starts call" << endl;
@@ -53,13 +54,28 @@ void BillingController::init()
 				cout  << "No such abonent with id = " << id << endl;
 		}
 
+		//get phone to call -----------------------------------------------------------------
+		cin.clear();
+		cin.ignore( numeric_limits<streamsize>::max(), '\n');
+		std::string number;
+
+		while (true) 
+		{
+			cout << "Enter phone number to call (10 symbols, only digits)" << endl;
+			getline(cin, number);
+
+			if (number.length() == 10 && Utils::is_digits(number)) {
+				break;
+			}
+
+			cout << "Invalid number, must contains only digits and  ==10 symbols length" << endl;
+		}
+		//-----------------------------------------------------------------------------------
 		abonent = new Abonent(data);
-		ActiveCall* activeCall = new ActiveCall(abonent , "0508341916");
+		ActiveCall* activeCall = new ActiveCall(abonent , number);
 		abonent->startCall(activeCall);
 
 		unsigned duration = 0;
-		cin.ignore( numeric_limits<streamsize>::max(), '\n');
-		cin.clear();
 
 		printf("\nEnter duration of call (seconds)\n");
 		cin >> duration;
@@ -76,9 +92,6 @@ void BillingController::init()
 			cin >> duration;
 		}
 
-		if (duration > Model::MAX_SESSION_LENGTH)
-			duration = Model::MAX_SESSION_LENGTH;
-
 		//if abonent can speak for this long
 		if (abonent->GetActiveCall()->setDuration(duration))
 			abonent->hungUp();
@@ -87,8 +100,8 @@ void BillingController::init()
 		delete activeCall;
 		cin.clear();
 		cin.ignore( numeric_limits<streamsize>::max(), '\n');
-		printf("To exit type 0\n");
-		cin>> running;
+		printf("To exit type 0\n or any digit for continue");
+		cin >> running;
 		if (running)
 		{
 			cout << string( 100, '\n' );
