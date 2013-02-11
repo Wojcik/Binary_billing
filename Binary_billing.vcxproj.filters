@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="logic">
+      <UniqueIdentifier>{91be3891-ad89-4ba7-a1a1-cb3031d00549}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DataTypes">
+      <UniqueIdentifier>{05a6b990-1844-4c8b-a690-415a9b3e7567}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Imported">
+      <UniqueIdentifier>{52579d53-eaf8-4876-9cea-3157757a3e11}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Text.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\Model.cpp">
+      <Filter>logic</Filter>
+    </ClCompile>
+    <ClCompile Include="DataTypes\AbonentData.cpp">
+      <Filter>DataTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\Abonent.cpp">
+      <Filter>logic</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\BillingController.cpp">
+      <Filter>logic</Filter>
+    </ClCompile>
+    <ClCompile Include="DataTypes\ActiveCall.cpp">
+      <Filter>DataTypes</Filter>
+    </ClCompile>
+    <ClCompile Include="Imported\cJSON.c">
+      <Filter>Imported</Filter>
+    </ClCompile>
+    <ClCompile Include="logic\Utils.cpp">
+      <Filter>logic</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="logic\Model.h">
+      <Filter>logic</Filter>
+    </ClInclude>
+    <ClInclude Include="DataTypes\AbonentData.h">
+      <Filter>DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\Abonent.h">
+      <Filter>logic</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\BillingController.h">
+      <Filter>logic</Filter>
+    </ClInclude>
+    <ClInclude Include="DataTypes\ActiveCall.h">
+      <Filter>DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="Imported\cJSON.h">
+      <Filter>Imported</Filter>
+    </ClInclude>
+    <ClInclude Include="logic\Utils.h">
+      <Filter>logic</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
