@@ -98,14 +98,14 @@ void BillingController::init()
 
 		delete abonent;
 		delete activeCall;
-		cin.clear();
-		cin.ignore( numeric_limits<streamsize>::max(), '\n');
-		printf("To exit type 0\n or any digit for continue");
+		printf("To exit type 0. To continue type any other symbol");
 		cin >> running;
 		if (running)
 		{
 			cout << string( 100, '\n' );
 		}
+		cin.clear();
+		cin.ignore( numeric_limits<streamsize>::max(), '\n');
 	}
 }
 

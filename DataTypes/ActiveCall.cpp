@@ -36,7 +36,10 @@ bool ActiveCall::startCall()
 
 bool ActiveCall::setDuration( unsigned value )
 {
-	possibleSeconds = abonent->getData()->getPossibleSeconds(isHomeNetwork(), isWeekEnd());
+	bool _isHomeNetwork = isHomeNetwork();
+	bool _isWeekEnd = isWeekEnd();
+	printf("--------Try start %sinside home network. Now %sweekend---------\n",(_isHomeNetwork ?"": "NOT "), (_isWeekEnd?"": "NOT "));
+	possibleSeconds = abonent->getData()->getPossibleSeconds(_isHomeNetwork, _isWeekEnd);
 	if (possibleSeconds <= 0 || possibleSeconds < value)
 	{
 		printf("abonent %s can speak only for %d minutes (%d seconds)\n", abonent->getData()->getName().c_str(), static_cast<int>(possibleSeconds/60), possibleSeconds);
