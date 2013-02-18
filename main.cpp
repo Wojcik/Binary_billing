@@ -1,22 +1,23 @@
 
-#include "logic/Model.h"
-#include "logic/BillingController.h"
+#include "Data/Model.h"
+#include "Data/BillingModel.h"
+#include "logic/InputController.h"
 
 #define _CRT_SECURE_NO_DEPRECATE // disable annoying warning in utils::getJson for fopen func
-
-using namespace std;
 
 int main (int argc, char* argv[])
 {
 	//init model singleton
-	Model* model = Model::getInstance();
-	
+	AbonentsModel* ab_model = AbonentsModel::getInstance();
+	BillingModel* billing_model = BillingModel::getInstance();
 	//all data was loaded successfully
-	if (model->init())
+	if (ab_model->init() && billing_model->init())
 	{
-		BillingController* controller = new BillingController();
+		InputController* controller = new InputController();
 		controller->init();
 	}
+
+	delete ab_model;
 
 	return 0;
 }

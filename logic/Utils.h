@@ -3,6 +3,17 @@
 
 #include "..\Imported\cJSON.h"
 #include <string>
+#include <utility>
+
+template<class A, class B>
+struct DeleteMap
+{
+	bool operator()( std::pair<A,B> &x) const
+	{
+		delete x.second;
+		return true;
+	}
+};
 
 namespace Utils
 {

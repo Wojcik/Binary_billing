@@ -4,25 +4,27 @@
 #include <ctime>
 #include <conio.h>
 
-#include "BillingController.h"
-#include "Abonent.h"
+#include "InputController.h"
+#include "..\DataTypes\Abonent.h"
 #include "..\DataTypes\AbonentData.h"
-#include "Model.h"
-#include "Utils.h"
+#include "..\Data\Model.h"
+#include "..\logic\Utils.h"
+#include "..\logic\CallsManager.h"
 
-BillingController::BillingController()
+InputController::InputController()
 {
 	running = false;
 }
 
 
 //main loop
-void BillingController::init()
+void InputController::init()
 {
 	using namespace std;
 
 	Abonent* abonent;
 	AbonentData* data;
+	CallsManager* callsManager = new CallsManager();
 	int id;
 	running = true;
 	//start input data
@@ -31,7 +33,7 @@ void BillingController::init()
 		abonent = NULL;
 		data = NULL;
 		id = 0;
-		Model::getInstance()->printAbonents();
+		AbonentsModel::getInstance()->printAbonents();
 		// get user data for start session
 		while(!data)
 		{
@@ -49,7 +51,7 @@ void BillingController::init()
 				cin >> id;
 			}
 
-			data = Model::getInstance()->getAbonentWithId(id);
+			data = AbonentsModel::getInstance()->getAbonentWithId(id);
 			if (!data)
 				cout  << "No such abonent with id = " << id << endl;
 		}
@@ -72,8 +74,7 @@ void BillingController::init()
 		}
 		//-----------------------------------------------------------------------------------
 		abonent = new Abonent(data);
-		ActiveCall* activeCall = new ActiveCall(abonent , number);
-		abonent->startCall(activeCall);
+		callsManager->addCall(abonent, number);
 
 		unsigned duration = 0;
 
@@ -93,11 +94,9 @@ void BillingController::init()
 		}
 
 		//if abonent can speak for this long
-		if (abonent->GetActiveCall()->setDuration(duration))
-			abonent->hungUp();
+		callsManager->endCall(duration);
 
 		delete abonent;
-		delete activeCall;
 		printf("To exit type 0. To continue type any other symbol");
 		cin >> running;
 		if (running)
@@ -109,7 +108,7 @@ void BillingController::init()
 	}
 }
 
-BillingController::~BillingController()
+InputController::~InputController()
 {
 	//nothing to do here
 }

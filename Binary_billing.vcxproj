@@ -72,22 +72,37 @@
     <Text Include="Text.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DataTypes\Abonent.cpp" />
     <ClCompile Include="DataTypes\AbonentData.cpp" />
     <ClCompile Include="DataTypes\ActiveCall.cpp" />
+    <ClCompile Include="DataTypes\Tariff.cpp" />
+    <ClCompile Include="Data\BillingModel.cpp" />
+    <ClCompile Include="Data\Model.cpp" />
     <ClCompile Include="Imported\cJSON.c" />
-    <ClCompile Include="logic\Abonent.cpp" />
-    <ClCompile Include="logic\BillingController.cpp" />
-    <ClCompile Include="logic\Model.cpp" />
+    <ClCompile Include="logic\BalanceController.cpp" />
+    <ClCompile Include="logic\CallsManager.cpp" />
+    <ClCompile Include="logic\InputController.cpp" />
+    <ClCompile Include="logic\priceCount\GeneralPriceCalc.cpp" />
+    <ClCompile Include="logic\priceCount\PriceCalcWeekend.cpp" />
+    <ClCompile Include="logic\priceCount\PriceCalcWithFreeMinutes.cpp" />
     <ClCompile Include="logic\Utils.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DataTypes\Abonent.h" />
     <ClInclude Include="DataTypes\AbonentData.h" />
     <ClInclude Include="DataTypes\ActiveCall.h" />
+    <ClInclude Include="DataTypes\Tariff.h" />
+    <ClInclude Include="Data\BillingModel.h" />
+    <ClInclude Include="Data\Model.h" />
     <ClInclude Include="Imported\cJSON.h" />
-    <ClInclude Include="logic\Abonent.h" />
-    <ClInclude Include="logic\BillingController.h" />
-    <ClInclude Include="logic\Model.h" />
+    <ClInclude Include="logic\BalanceController.h" />
+    <ClInclude Include="logic\CallsManager.h" />
+    <ClInclude Include="logic\InputController.h" />
+    <ClInclude Include="logic\priceCount\GeneralPriceCalc.h" />
+    <ClInclude Include="logic\priceCount\IPriceCalculator.h" />
+    <ClInclude Include="logic\priceCount\PriceCalcWeekend.h" />
+    <ClInclude Include="logic\priceCount\PriceCalcWithFreeMinutes.h" />
     <ClInclude Include="logic\Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

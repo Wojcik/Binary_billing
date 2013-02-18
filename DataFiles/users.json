@@ -2,6 +2,7 @@
     "1": {
         "id": 1,
         "name": "Victor Ivanov",
+        "tariffName": "weekend",
         "balance": 30,
         "banned": 0,
         "lastRechargeTime": 1360570263,
@@ -11,6 +12,7 @@
     "2": {
         "id": 2,
         "name": "Anna Petrova",
+        "tariffName": "free_connection_fee",
         "balance": 100,
         "banned": 0,
         "lastRechargeTime": 1360570263,

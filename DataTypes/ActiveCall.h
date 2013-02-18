@@ -2,15 +2,17 @@
 #define ACTIVE_CALL
 
 #include <string>
+#include <ctime>
+#include "AbonentData.h"
 
 class Abonent;
+
 enum CALL_STATUS
 {
-	NONE,
-	START_DIAL,
-	SPEAKING,
-	NOT_ENOUGH_MONEY,
-	FINISHED
+	DIAL,
+	STARTED,
+	FINISHED,
+	TERMINATED
 };
 
 class ActiveCall
@@ -18,28 +20,34 @@ class ActiveCall
 public:
 	ActiveCall(Abonent* _abonent, std::string number);
 	~ActiveCall();
-	bool startCall();
-	void endCall();
-	//set status of current session
-	void		setStatus( CALL_STATUS status );
-	CALL_STATUS getStatus() const {return status;};
-	//true if call inside home network
-	bool isHomeNetwork();
-	//call start at weekend (Saturday or Sunday)
-	bool isWeekEnd();
+	void startCall();
+	void endCall(CALL_STATUS finishedWithStatus);
+
+	Abonent* getAbonent(){return abonent;};
 	//total duration of session
 	unsigned	getDuration(bool inMinutes = false) const { return (inMinutes?static_cast<unsigned>(ceil(duration/60.0f)):duration); };
-	bool		setDuration(unsigned value);
+	void		setDuration(unsigned value);
 	
 	float	getPrice() const {return price;};
 	void	setPrice(float value) {price = value;};
+
+	std::string getObjectNumber() const { return object_number; };
+
+
+	bool getIsHomeNetwork() const { return isHomeNetwork; };
+	void setIsHomeNetwork(bool val) { isHomeNetwork = val; };
+
+	bool getIsWeekend() const { return isWeekEnd; };
+	void setIsWeekEnd(bool val) { isWeekEnd = val; };
+	time_t getCallStartDate() const { return callStartDate; };
 private:
 	Abonent*	abonent;
 	std::string object_number;
-	time_t		callDate;
+	time_t		callStartDate;
+	CALL_STATUS status;
 	unsigned	duration;
 	float		price;
-	unsigned	possibleSeconds;
-	CALL_STATUS status;
+	bool isHomeNetwork;
+	bool isWeekEnd;
 };
 #endif

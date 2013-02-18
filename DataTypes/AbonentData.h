@@ -2,8 +2,11 @@
 #define ABONENT_DATA
 
 #include <string>
-#include "ActiveCall.h"
 #include <vector>
+#include <assert.h>
+
+class Tariff;
+class ActiveCall;
 
 class AbonentData
 {
@@ -11,29 +14,32 @@ private:
 	unsigned	id;
 	//abonent name
 	std::string name;
+	// active user tariff
+	std::string currentTariff;
 	//current abonent balance
 	float		balance;
 	//abonent was banned for some reason
 	bool		banned;
 	//last time when balance was recharged
 	unsigned	lastRechargeTime;
-	//bonus for recharching
+	//bonus for recharge
 	unsigned	freeMinutes;
-	
 	std::vector<ActiveCall*> callsHistory;
 public:
-	AbonentData(unsigned _id , std::string _name, float _balance, int _lastRechargeTime, int _freeMinutes, bool _banned );
+	AbonentData(unsigned _id , std::string _name, std::string tariff, float _balance, int _lastRechargeTime, int _freeMinutes, bool _banned );
 	~AbonentData();
-	int getFreeMinutes();
 	std::string getName() const {return name;};
 	float getBalance() const {return balance;};
-	void addToBalance(float value);
-	bool isBanned() const {return banned;};
-	void setBanned(bool _banned) {banned = _banned;};
+	void setBalance(float value) {balance = value;};
+
 	//when abonent add money to balance
 	void AddCosts( unsigned _rechargeValue );
-	void updateBalance( ActiveCall* activeCall );
-	unsigned getPossibleSeconds(bool isHomeNetwork, bool isWeekend);
+	unsigned getLastRechargeTime() const { return lastRechargeTime; };
+	std::string getCurrentTariff() const { return currentTariff; };
+	void	setCurrentTariff(std::string val) {assert(val.length()); currentTariff = val; };
+
+	unsigned getFreeMinutes();
+	void	setFreeMinutes(unsigned val) { freeMinutes = val; };
 };
 #endif
 
