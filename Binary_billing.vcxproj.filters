@@ -55,9 +55,6 @@
     <ClCompile Include="logic\Utils.cpp">
       <Filter>logic</Filter>
     </ClCompile>
-    <ClCompile Include="Data\Model.cpp">
-      <Filter>Data</Filter>
-    </ClCompile>
     <ClCompile Include="Data\BillingModel.cpp">
       <Filter>Data</Filter>
     </ClCompile>
@@ -69,6 +66,9 @@
     </ClCompile>
     <ClCompile Include="logic\priceCount\PriceCalcWeekend.cpp">
       <Filter>logic\PriceCount</Filter>
+    </ClCompile>
+    <ClCompile Include="Data\AbonentsModel.cpp">
+      <Filter>Data</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -99,9 +99,6 @@
     <ClInclude Include="logic\Utils.h">
       <Filter>logic</Filter>
     </ClInclude>
-    <ClInclude Include="Data\Model.h">
-      <Filter>Data</Filter>
-    </ClInclude>
     <ClInclude Include="Data\BillingModel.h">
       <Filter>Data</Filter>
     </ClInclude>
@@ -116,6 +113,9 @@
     </ClInclude>
     <ClInclude Include="logic\priceCount\IPriceCalculator.h">
       <Filter>logic\PriceCount</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\AbonentsModel.h">
+      <Filter>Data</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

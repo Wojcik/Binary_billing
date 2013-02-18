@@ -7,7 +7,7 @@
 #include "InputController.h"
 #include "..\DataTypes\Abonent.h"
 #include "..\DataTypes\AbonentData.h"
-#include "..\Data\Model.h"
+#include "..\Data\AbonentsModel.h"
 #include "..\logic\Utils.h"
 #include "..\logic\CallsManager.h"
 

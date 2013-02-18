@@ -76,8 +76,8 @@
     <ClCompile Include="DataTypes\AbonentData.cpp" />
     <ClCompile Include="DataTypes\ActiveCall.cpp" />
     <ClCompile Include="DataTypes\Tariff.cpp" />
+    <ClCompile Include="Data\AbonentsModel.cpp" />
     <ClCompile Include="Data\BillingModel.cpp" />
-    <ClCompile Include="Data\Model.cpp" />
     <ClCompile Include="Imported\cJSON.c" />
     <ClCompile Include="logic\BalanceController.cpp" />
     <ClCompile Include="logic\CallsManager.cpp" />
@@ -93,8 +93,8 @@
     <ClInclude Include="DataTypes\AbonentData.h" />
     <ClInclude Include="DataTypes\ActiveCall.h" />
     <ClInclude Include="DataTypes\Tariff.h" />
+    <ClInclude Include="Data\AbonentsModel.h" />
     <ClInclude Include="Data\BillingModel.h" />
-    <ClInclude Include="Data\Model.h" />
     <ClInclude Include="Imported\cJSON.h" />
     <ClInclude Include="logic\BalanceController.h" />
     <ClInclude Include="logic\CallsManager.h" />

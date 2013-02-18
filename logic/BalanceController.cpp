@@ -3,7 +3,7 @@
 #include <assert.h>
 
 #include "BalanceController.h"
-#include "..\Data\Model.h"
+#include "..\Data\AbonentsModel.h"
 #include "..\Data\BillingModel.h"
 #include "..\DataTypes\ActiveCall.h"
 #include "..\DataTypes\AbonentData.h"
