@@ -13,11 +13,12 @@ int main (int argc, char* argv[])
 	//all data was loaded successfully
 	if (ab_model->init() && billing_model->init())
 	{
-		InputController* controller = new InputController();
-		controller->init();
+		InputController controller;
+		controller.init();
 	}
 
 	delete ab_model;
+	delete billing_model;
 
 	return 0;
 }

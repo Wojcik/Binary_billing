@@ -11,12 +11,6 @@
 #include "..\logic\Utils.h"
 #include "..\logic\CallsManager.h"
 
-InputController::InputController()
-{
-	running = false;
-}
-
-
 //main loop
 void InputController::init()
 {
@@ -25,20 +19,20 @@ void InputController::init()
 	Abonent* abonent;
 	AbonentData* data;
 	CallsManager* callsManager = new CallsManager();
-	int id;
+	int abonent_id;
 	running = true;
 	//start input data
 	while(running)
 	{
 		abonent = NULL;
 		data = NULL;
-		id = 0;
+		abonent_id = 0;
 		AbonentsModel::getInstance()->printAbonents();
 		// get user data for start session
 		while(!data)
 		{
 			cout << "Enter abonent id who starts call" << endl;
-			cin >> id;
+			cin >> abonent_id;
 			while (cin.fail()) 
 			{
 				if (cin.fail()) 
@@ -48,12 +42,12 @@ void InputController::init()
 				}
 				cout << "Input error!" << endl;
 				cout << "Enter abonent id who to start call" <<endl;
-				cin >> id;
+				cin >> abonent_id;
 			}
 
-			data = AbonentsModel::getInstance()->getAbonentWithId(id);
+			data = AbonentsModel::getInstance()->getAbonentWithId(abonent_id);
 			if (!data)
-				cout  << "No such abonent with id = " << id << endl;
+				cout  << "No such abonent with id = " << abonent_id << endl;
 		}
 
 		//get phone to call -----------------------------------------------------------------
@@ -106,9 +100,4 @@ void InputController::init()
 		cin.clear();
 		cin.ignore( numeric_limits<streamsize>::max(), '\n');
 	}
-}
-
-InputController::~InputController()
-{
-	//nothing to do here
 }

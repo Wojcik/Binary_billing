@@ -8,8 +8,8 @@ class InputController
 private:
 	bool running;
 public:
-	InputController();
-	~InputController();
+	InputController():running(false){};
+	~InputController(){};
 	void init();
 };
 #endif
